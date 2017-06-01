@@ -1,0 +1,27 @@
+<html lang="utf-8">
+<head>
+	<title>Record</title>
+</head>
+<body>
+	<h2>Record data</h2>
+	{% if errors %}
+		<ul>
+			{% for error in errors %}
+				<li>{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	
+	<form action="/sjform/record/" method="POST">{% csrf_token %}
+		<p> title: <input type="text" name="title"></p>
+		<p> author: <input type="text" name="author"></p>
+		<p> pubisher: <textarea name="pubisher" rows="1" cols="50">{{pubisher}}</textarea></p>
+{#		<p>  Message: <textarea name="message" rows="10" cols="50">**{{ message }}**</textarea></p> #}
+		
+		<input type="submit" value="submit">  
+{#		<input type="submit" value="Search">  #}
+		
+	</form>
+	
+</body>
+</html>
